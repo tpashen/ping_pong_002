@@ -15,6 +15,7 @@ class GameSprite(sprite.Sprite):
         window.blit(self.image, (self.rect.x, self.rect.y))
 #2
 #3
+#4
 while game:
     for e in event.get():
         game = False
