@@ -6,6 +6,7 @@ mixer.init()
 mixer.music.load('prv.ogg')
 mixer.music.play()
 crash = mixer.Sound('crash.ogg')
+loses = mixer.Sound('loses.ogg')
 
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, player_speed, width, height):
@@ -78,12 +79,14 @@ while game:
             finish = True
             window.blit(lose1, (200, 200))
             game_over = True
+            loses.play()
 
 
         if ball.rect.x > win_width:
             finish = True
             window.blit(lose2, (200, 200))
             game_over = True
+            loses.play()
         racket1.reset()
         racket2.reset()
         ball.reset()
