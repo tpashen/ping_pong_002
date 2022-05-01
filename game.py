@@ -1,5 +1,12 @@
 from pygame import *
 
+#музыка
+mixer.init()
+#prv.ogg заглушка, ее нужно поменять
+mixer.music.load('prv.ogg')
+mixer.music.play()
+crash = mixer.Sound('crash.ogg')
+
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, player_speed, width, height):
         super().__init__()
@@ -80,5 +87,8 @@ while game:
         racket1.reset()
         racket2.reset()
         ball.reset()
+        #звук при столкновении
+        if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
+            crash.play()
     display.update()
     clock.tick(FPS)
